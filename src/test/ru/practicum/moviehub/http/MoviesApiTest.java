@@ -412,6 +412,7 @@ public class MoviesApiTest {
 
         assertEquals(CODE_404, resp.statusCode());
     }
+
     @Test
     void postMovies_withoutContentType_returns415() throws Exception {
         String json = "{\"title\":\"Heroes\",\"year\":1980}";
@@ -421,6 +422,7 @@ public class MoviesApiTest {
 
         assertEquals(CODE_415, resp.statusCode());
     }
+
     @Test
     void postMovies_withMinYear_returns201() throws Exception {
         String json = "{\"title\":\"Movie\",\"year\":" + MIN_YEAR + "}";
@@ -434,6 +436,7 @@ public class MoviesApiTest {
         assertEquals(CODE_201, resp.statusCode());
         assertEquals(MIN_YEAR, movie.getYear());
     }
+
     @Test
     void postMovies_withTitleExactly100Characters_returns201() throws Exception {
         String title = "A".repeat(100);
